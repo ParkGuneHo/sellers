@@ -13,7 +13,7 @@ spec:
         app: sellers
     spec:
       containers:
-        - image: suhyung007/sellers:tomcat-7
+        - image: suhyung007/sellers:tomcat-8
           name: sellers
           ports:
             - containerPort: 8080

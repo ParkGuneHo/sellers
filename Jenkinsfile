@@ -21,7 +21,7 @@ pipeline {
       steps{
         script {
           echo "Build image START $BUILD_NUMBER"
-          dockerImage = docker.build("suhyung007/sellers:mysql-$BUILD_NUMBER")
+          dockerImage = docker.build("suhyung007/sellers:tomcat-$BUILD_NUMBER")
           echo "Build image END"
         }
       }
