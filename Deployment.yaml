@@ -1,19 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sellers 
+  name: sellers
   namespace: sellers
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: sellers 
+      app: sellers
+      version: v1
   template:
     metadata:
       labels:
         app: sellers
+        version: v1
+      annotations:
+        sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - image: suhyung007/sellers:tomcat-10
+        - image: suhyung007/sellers:tomcat-11
           name: sellers
           ports:
             - containerPort: 8080
@@ -23,4 +28,4 @@ spec:
       volumes:
         - name: sellers-persistent-storage
           persistentVolumeClaim:
-            claimName: sellers-pv-claim 
+            claimName: sellers-pv-claim
