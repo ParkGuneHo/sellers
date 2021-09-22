@@ -22,7 +22,8 @@ COPY ROOT /usr/local/tomcat/webapps/ROOT
 
 #JENNIFER5 설치파일을 압축 푼다. 
 #COPY ./jennifer5/jennifer-agent-java-5.5.1.2.zip /usr/local/jennifer5
-#RUN cd /usr/local/jennifer5 && /usr/local/openjdk-8/bin/jar -xvf jennifer-agent-java-5.5.1.2.zip 
+#RUN cd /usr/local/jennifer5 && \
+      /usr/local/openjdk-8/bin/jar -xvf jennifer-agent-java-5.5.1.2.zip 
 #COPY ./jennifer5/thesellers.conf /usr/local/jennifer5/agent.java/conf
 #COPY ./jennifer5/catalina.sh /usr/local/tomcat/bin/
 
