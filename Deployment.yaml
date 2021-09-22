@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sellers 
-  namespace: thesellers
+  namespace: sellers
 spec:
   selector:
     matchLabels:
@@ -13,7 +13,7 @@ spec:
         app: sellers
     spec:
       containers:
-        - image: suhyung007/sellers:tomcat-9
+        - image: suhyung007/sellers:tomcat-10
           name: sellers
           ports:
             - containerPort: 8080
