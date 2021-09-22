@@ -12,7 +12,7 @@ pipeline {
     stage('Checkout Source') {
       steps {
         echo "Checkout Source START"
-        git 'https://github.com/uni-shpark/cicdtest.git'
+        git 'https://github.com/uni-shpark/sellers.git'
         echo "Checkout Source END"
       }
     }
@@ -46,7 +46,7 @@ pipeline {
       steps {
         script {
           echo "Deploy App START"
-          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          kubernetesDeploy(configs: "Deployment.yaml", kubeconfigId: "mykubeconfig")
           echo "Deploy App END"
         }
       }
