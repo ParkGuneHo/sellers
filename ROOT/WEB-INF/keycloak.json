@@ -1,0 +1,8 @@
+{
+  "realm": "sellers-oauth",
+  "auth-server-url": "https://keycloak-thesellers.apps.test.cloudia/auth/",
+  "ssl-required": "external",
+  "resource": "sellers-eunmi",
+  "public-client": true,
+  "confidential-port": 0
+}
