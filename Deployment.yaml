@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sellers 
+  namespace: thesellers
+spec:
+  selector:
+    matchLabels:
+      app: sellers 
+  template:
+    metadata:
+      labels:
+        app: sellers
+    spec:
+      containers:
+        - image: suhyung007/sellers:tomcat-1
+          name: sellers
+          ports:
+            - containerPort: 8080
+          volumeMounts:
+            - name: sellers-persistent-storage
+              mountPath: /var/lib
+      volumes:
+        - name: sellers-persistent-storage
+          persistentVolumeClaim:
+            claimName: sellers-pv-claim 
