@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "uni-shpark/sellers"
+    registry = "uni-shpark/myweb"
     dockerImage = ""
   }
 
@@ -11,14 +11,18 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/uni-shpark/sellers.git'
+        echo "Checkout Source START"
+        git 'https://github.com/uni-shpark/cicdtest.git'
+        echo "Checkout Source END"
       }
     }
 
     stage('Build image') {
       steps{
         script {
-          dockerImage = dockerImage = docker.build("suhyung007/sellers:tomcat-$BUILD_NUMBER")
+          echo "Build image START $BUILD_NUMBER"
+          dockerImage = docker.build("suhyung007/sellers:mysql-$BUILD_NUMBER")
+          echo "Build image END"
         }
       }
     }
@@ -29,9 +33,11 @@ pipeline {
            }
       steps{
         script {
+          echo "Push Image START"
           docker.withRegistry( "https://registry.hub.docker.com", registryCredential ) {
             dockerImage.push()
           }
+          echo "Push Image END"
         }
       }
     }
@@ -39,7 +45,9 @@ pipeline {
     stage('Deploy App') {
       steps {
         script {
-          kubernetesDeploy(configs: "Deployment.yaml", kubeconfigId: "mykubeconfig")
+          echo "Deploy App START"
+          kubernetesDeploy(configs: "myweb.yaml", kubeconfigId: "mykubeconfig")
+          echo "Deploy App END"
         }
       }
     }
