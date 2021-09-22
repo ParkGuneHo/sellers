@@ -24,7 +24,7 @@
 		<property name="timeBetweenEvictionRunsMillis" value="36000000"/>
  
         <!-- real -->
-        <property name="url" value="jdbc:mysql://127.0.0.1:3306/sellers_test?allowMultiQueries=true"/>
+        <property name="url" value="jdbc:mysql://mysql:3306/sellers_test?allowMultiQueries=true"/>
  		<property name="username" value="sellers"/>
         <property name="password"  value="Sellers123!@#"/>
         
