@@ -18,7 +18,7 @@ spec:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - image: suhyung007/sellers:tomcat-15
+        - image: suhyung007/sellers:tomcat-17
           name: sellers
           ports:
             - containerPort: 8080
