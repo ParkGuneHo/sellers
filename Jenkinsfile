@@ -1,7 +1,7 @@
 pipeline {
 
   environment {
-    registry = "uni-shpark/myweb"
+    registry = "ParkGuneHo/sellers"
     dockerImage = ""
   }
 
@@ -12,7 +12,7 @@ pipeline {
     stage('Checkout Source') {
       steps {
         echo "Checkout Source START"
-        git 'https://github.com/uni-shpark/sellers.git'
+        git 'https://github.com/ParkGuneHo/sellers.git'
         echo "Checkout Source END"
       }
     }
@@ -21,7 +21,7 @@ pipeline {
       steps{
         script {
           echo "Build image START $BUILD_NUMBER"
-          dockerImage = docker.build("suhyung007/sellers:tomcat-$BUILD_NUMBER")
+          dockerImage = docker.build("chump1/sellers:tomcat-$BUILD_NUMBER")
           echo "Build image END"
         }
       }

@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: sellers-v1
-  namespace: sellers
+  namespace: team1
 spec:
   replicas: 1
   selector:
@@ -18,7 +18,7 @@ spec:
         sidecar.istio.io/inject: 'true'
     spec:
       containers:
-        - image: suhyung007/sellers:tomcat-23
+        - image: chump1/sellers:tomcat-23
           name: sellers
           ports:
             - containerPort: 8080
